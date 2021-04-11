@@ -3,13 +3,16 @@ const logger = require('./logger.js');
 const messageApis = require('./lib/apis/message.js');
 
 // Port to listen to
-const port = process.env.LISTENER_PORT || 8000;
+const port = process.env.port || 8000;
 
 // Initialize web application
 const app = express();
 
 // Middleware to parse JSON payloads
 app.use(express.json());
+
+// Middleware to encode url
+app.use(express.urlencoded({extended: false}));
 
 // Add endpoints for messages
 messageApis(app);
