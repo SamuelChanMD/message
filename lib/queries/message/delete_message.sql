@@ -1,0 +1,1 @@
+DELETE from message where id = $1

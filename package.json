@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "setup": "node setup.js",
+    "test": "node tests/test.isPalindrome.js"
+  },
+  "name": "message",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuelChanMD/message.git"
+  },
+  "author": "Samuel Chan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamuelChanMD/message/issues"
+  },
+  "homepage": "https://github.com/SamuelChanMD/message#readme"
+}
