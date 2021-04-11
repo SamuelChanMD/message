@@ -3,7 +3,7 @@ const logger = require('./logger.js');
 const messageApis = require('./lib/apis/message.js');
 
 // Port to listen to
-const port = process.env.port || 8000;
+const port = process.env.port || 8080;
 
 // Initialize web application
 const app = express();
