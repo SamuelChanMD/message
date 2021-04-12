@@ -17,8 +17,6 @@ const pool = new Pool({
 });
 
 logger.warn(`does rds_hostname exist? ${process.env.RDS_HOSTNAME}`);
-logger.warn(`does db host exist? ${process.env.DB_HOST}`);
 logger.warn(`does rds_db_name exist? ${process.env.RDS_DB_NAME}`);
-logger.warn(`does db database exist? ${process.env.DB_DATABASE}`);
 
 module.exports = pool;
