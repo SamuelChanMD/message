@@ -1,5 +1,6 @@
 const express = require('express');
 const logger = require('./logger.js');
+const validationMiddleware = require('./lib/middleware/validation.js');
 const messageApis = require('./lib/apis/message.js');
 
 // Port to listen to
@@ -13,6 +14,9 @@ app.use(express.json());
 
 // Middleware to encode url
 app.use(express.urlencoded({extended: false}));
+
+// Middleware for common validation
+validationMiddleware(app);
 
 // Add endpoints for messages
 messageApis(app);

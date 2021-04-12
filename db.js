@@ -16,7 +16,4 @@ const pool = new Pool({
     'idleTimeoutMillis': 0,
 });
 
-logger.warn(`does rds_hostname exist? ${process.env.RDS_HOSTNAME}`);
-logger.warn(`does rds_db_name exist? ${process.env.RDS_DB_NAME}`);
-
 module.exports = pool;

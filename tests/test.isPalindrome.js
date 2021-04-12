@@ -2,7 +2,6 @@ const messageORM = require('../lib/object-relational-models/message.js');
 
 const { setFunction: isPalindrome } = messageORM.fields.value;
 
-// TODO: need to test api. also probs good to use mocha.
 const tests = [
     {
         actual: isPalindrome({value: ''}),
