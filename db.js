@@ -3,6 +3,7 @@
  */
 
 const {Pool} = require('pg');
+const logger = require('./logger.js');
 
 const pool = new Pool({
     'host': process.env.RDS_HOST || '127.0.0.1',
@@ -14,5 +15,8 @@ const pool = new Pool({
     'connectionTimeoutMillis': 10000, // 10 seconds
     'idleTimeoutMillis': 0,
 });
+
+logger.warn(`does rds_host exist? ${process.env.RDS_HOST}`);
+logger.warn(`does db host exist? ${process.env.DB_HOST}`);
 
 module.exports = pool;
