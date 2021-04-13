@@ -15,6 +15,10 @@ app.use(express.json());
 // Middleware to encode url
 app.use(express.urlencoded({extended: false}));
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Message App!')
+});
+
 // Middleware for common validation
 validationMiddleware(app);
 
