@@ -11,8 +11,10 @@ There are five endpoints:
 
 # Building locally
 - Clone the repository: `git clone https://github.com/SamuelChanMD/message.git`
+- Go into the project directory
 - Checkout `dockerContainers` branch
 - Run `docker-compose up`
+- Application should be running on `http://localhost:3000`
 
 # Deployment Information
 There is an AWS pipeline to continously deploy any changes on the `main` branch to an ElasticBeanstalk environment. However, I didn't get to creating a new environment and pipeline that would work with Docker. So right now, it deploys the code without containerization and connects to a database I spun up on AWS.
