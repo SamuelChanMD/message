@@ -33,6 +33,6 @@ app.use((err, req, res, next) => {
     res.sendStatus(httpStatus);
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     logger.info(`Listening to port ${port}`);
 });

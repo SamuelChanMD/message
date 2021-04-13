@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    db:
+        image: postgres:13
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=irwtj21!
+            - POSTGRES_DB=message
+        ports:
+            - "5432:5432"
+        healthcheck:
+            test: ["CMD", "pg_isready", "-U", "postgres"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: app
+        # node setup should only run once
+        command: bash -c "node setup && node server"
+        environment:
+            - RDS_HOSTNAME=db
+            - RDS_USERNAME=postgres
+            - RDS_PASSWORD=irwtj21!
+            - RDS_DB_NAME=message
+        restart: on-failure
+        depends_on:
+            - db
+        links: 
+            - db
+        ports:
+            - "3000:8080"
