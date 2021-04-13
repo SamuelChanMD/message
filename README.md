@@ -17,7 +17,7 @@ There are five endpoints:
 - Application should be running on `http://localhost:3000`
 
 # Deployment Information
-There is an AWS pipeline to continously deploy any changes on the `main` branch to an ElasticBeanstalk environment. However, I didn't get to creating a new environment and pipeline that would work with Docker. So right now, it deploys the code without containerization and connects to a database I spun up on AWS.
+There is an AWS pipeline for continous deployment on an ElasticBeanstalk environment against the  `main` branch. Although, I have setup Docker containers on the `dockerContainers` branch, I have not setup a new environment and pipeline on AWS for deploying an containerized application. So for now, the `main` branch does not have Docker available. It is still connected to a database though and will store messages.
 Link: http://message-env.eba-upgsnkzt.us-east-2.elasticbeanstalk.com
 
 # Test
