@@ -23,3 +23,10 @@ Link: http://message-env.eba-upgsnkzt.us-east-2.elasticbeanstalk.com
 # Test
 Right now, the tests are very simple as there are only unit tests. To run the test, simply run "node test"
 
+# Some improvements to make in future versions
+- Utilise nginx for load balancing and rate limiting
+- Either install or develop a fully fledged Object Relational Model for increased configurability.
+    - This would be helpful if we decided to capture more than just messages. Maybe we would a table for numbers, for example, with data that captures whether it is a prime number or not. Or maybe we want to create another column in the message table to capture whether the message has duplicate characters.
+- Research into using the adapter pattern for interacting with the database so that it is more seamless to switch between databases if need be
+- Add functional tests to test the CRUD actions on messages. Example: ensuring that a POST request with a valid body passes and POST request with invalid data fails.
+- Utilise environment variables for setting up the Docker containers
