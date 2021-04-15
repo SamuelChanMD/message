@@ -3,11 +3,71 @@
 An application which stores messages and computes whether or not the message is a palindrome. Application is containerized in Docker as is the database, in this case Postgresql.
 
 There are five endpoints:
-- POST api/message: Accepts JSON body containing "value" which is the string message and inserts it into db along with whether it is a palindrome or not
-- GET api/message/:id: Returns full message record with said ID
+- POST api/message
+    - Action: Creates a message and indicates whether it is a palindrome or not
+    - REQUEST BODY:
+        ```
+        {
+            "value": "Message Value"
+        }
+        ```
+    - 200 ok RESPONSE:
+        ```
+        {
+            "id": "862d938a-29be-48f0-bc99-80b258d684a7",
+            "value": "Message Value",
+            "palindrome": false,
+            "created_date": "2021-04-15T13:27:37.056Z",
+            "updated_date": "2021-04-15T13:27:37.056Z",
+        }
+        ```
+- GET api/message/:id
+    - Action: Retrieves a message record with certain ID
+    - REQUEST BODY: none
+    - 200 ok RESPONSE:
+        ```
+        {
+            "id": "862d938a-29be-48f0-bc99-80b258d684a7",
+            "value": "Message Value",
+            "palindrome": false,
+            ...
+        }
+        ```
 - GET api/messages: Return list of all messages
-- PATCH api/message/:id: Accepts JSON body containing "value" and updates an existing record. Ofcourse, it also recalculates whether it is a paldindrome or not.
-- DELETE api/message/:id: Deletes a message with said ID
+    - Action: Retrieves all messages. Note this is a little dangerous and it should probably use parameters to limit the response size, similar to a pagination.
+    - REQUEST BODY: none
+    - 200 ok RESPONSE:
+        ```
+        {
+            "id": "862d938a-29be-48f0-bc99-80b258d684a7",
+            ...
+        },
+        {
+            "id": "1ffa1eba-65c1-4b89-b97d-c34b7279ba5c",
+            ...
+        },
+        ...
+        ```
+- PATCH api/message/:id
+    - Action: Updates an existing message with new message value and updates whether or not it is a palindrome
+    - REQUEST BODY:
+    ```
+    {
+        "value": "New Message Value"
+    }
+    ```
+    - 200 ok RESPONSE: "Message successfully updated"
+- DELETE api/message/:id
+    - Action: Deletes a message
+    - REQUEST BODY: none
+    - 200 ok RESPONSE: "Message successfully deleted"
+
+# Environment Variables
+PORT=The port that the server is listening on. Less useful if using Docker as this would only modify the internal port mapping.
+RDS_HOSTNAME=The database hostname
+RDS_USERNAME=The username to connect to the database
+RDS_PASSWORD=The password to connect to the database
+RDS_DB_NAME=Name of the database
 
 # Building locally
 - Clone the repository: `git clone https://github.com/SamuelChanMD/message.git`
