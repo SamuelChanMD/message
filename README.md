@@ -63,11 +63,11 @@ There are five endpoints:
     - 200 ok RESPONSE: "Message successfully deleted"
 
 # Environment Variables
-PORT=The port that the server is listening on. Less useful if using Docker as this would only modify the internal port mapping.
-RDS_HOSTNAME=The database hostname
-RDS_USERNAME=The username to connect to the database
-RDS_PASSWORD=The password to connect to the database
-RDS_DB_NAME=Name of the database
+- PORT=The port that the server is listening on. Less useful if using Docker as this - would only modify the internal port mapping.
+- RDS_HOSTNAME=The database hostname
+- RDS_USERNAME=The username to connect to the database
+- RDS_PASSWORD=The password to connect to the database
+- RDS_DB_NAME=Name of the database
 
 # Building locally
 - Clone the repository: `git clone https://github.com/SamuelChanMD/message.git`
